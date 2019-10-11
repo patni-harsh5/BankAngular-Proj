@@ -1,0 +1,28 @@
+<p>application-editor works!</p>
+ 
+      <div class="row">
+        <div class="col-xs-12">
+          <h4>{{selectedApp?.status}}</h4>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <form (ngSubmit)="addRecipe(f)" #f=ngForm>
+              Credit Score: <input ngModel #creditScore=ngModel required value="{{selectedApp?.creditScore}}" type="text" class="form-control" name="creditScore" width="50%"><br>
+              <div *ngIf="creditScore.invalid && creditScore.dirty">
+                <div *ngIf="name.errors.required" style="color: red">
+                  Credit Score cannot be blank
+                </div>
+              </div>
+              Annual Income: <input ngModel #income=ngModel required email type="text" class="form-control" name="income" width="50%"><br>
+              <div *ngIf="income.invalid && income.dirty">
+                <div *ngIf="income.errors.required" style="color: red">
+                    Income cannot be blank
+                </div>
+              </div>
+              <button [disabled]="!f.valid" type="submit" class="btn btn-success">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      
